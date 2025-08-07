@@ -594,12 +594,31 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Service Worker
+// Service Worker for offline support
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        const swCode = `const CACHE_NAME = 'drumhelper-v1'; const urlsToCache = ['/']; self.addEventListener('install', (event) => { event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))); }); self.addEventListener('fetch', (event) => { event.respondWith(caches.match(event.request).then((response) => response || fetch(event.request))); });`;
-        const blob = new Blob([swCode], { type: 'application/javascript' });
-        const swUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swUrl).then((registration) => console.log('SW registered')).catch((error) => console.log('SW registration failed'));
+        navigator.serviceWorker.register('./sw.js')
+            .then((registration) => {
+                console.log('SW registered successfully:', registration.scope);
+                
+                // Handle updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('New content available, page will refresh');
+                            window.location.reload();
+                        }
+                    });
+                });
+            })
+            .catch((error) => {
+                console.log('SW registration failed:', error);
+            });
+
+        // Handle service worker controller changes
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+        });
     });
 }
