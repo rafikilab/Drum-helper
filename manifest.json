@@ -1,0 +1,31 @@
+{
+  "name": "DrumHelper - Drummer Assistant",
+  "short_name": "DrumHelper",
+  "description": "Professional metronome with voice announcements for drummers",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#1f2937",
+  "orientation": "portrait-primary",
+  "categories": ["music", "utilities", "productivity"],
+  "lang": "en",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIj48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNjAiIHI9IjMwIiBmaWxsPSIjNmQ4ZDU3Ii8+PGJlY3QgeD0iNTAiIHk9IjQwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjI0MCIgcnk9IjEwIiBmaWxsPSIjZmZmIi8+PC9zdmc+",
+      "sizes": "320x320",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIj48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNjAiIHI9IjMwIiBmaWxsPSIjNmQ4ZDU3Ii8+PGJlY3QgeD0iNTAiIHk9IjQwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjI0MCIgcnk9IjEwIiBmaWxsPSIjZmZmIi8+PC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIj48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNjAiIHI9IjMwIiBmaWxsPSIjNmQ4ZDU3Ii8+PGJlY3QgeD0iNTAiIHk9IjQwIiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjI0MCIgcnk9IjEwIiBmaWxsPSIjZmZmIi8+PC9zdmc+",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
