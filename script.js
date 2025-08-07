@@ -223,7 +223,7 @@ class DrumHelper {
         const beatInterval = 60000 / this.tempo;
         if (this.voiceEnabled && this.currentSection < this.sections.length) {
             const section = this.sections[this.currentSection];
-            this.announceSection(`${section.name} for ${section.measures} measures`);
+            this.announceSection(`${section.name}, ${section.measures} measures`);
         }
         
         this.intervalId = setInterval(() => {
