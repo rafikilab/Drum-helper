@@ -143,18 +143,6 @@ The app will announce each section:
 - **Teaching**: Visual aid for explaining song structures
 - **Composition**: Sketch out new song arrangements
 
-## 🤝 Contributing
-
-This is an open-source project! Contributions are welcome.
-
-### Ideas for Future Features
-- [ ] Multiple time signatures (3/4, 6/8, etc.)
-- [ ] Custom sound samples upload
-- [ ] Setlist mode for multiple songs
-- [ ] MIDI sync capabilities
-- [ ] Cloud storage integration
-- [ ] Collaborative sharing features
-
 ### Found a Bug?
 Please open an issue with:
 - Device/browser information
