@@ -259,7 +259,7 @@ class DrumHelper {
             }
             if (this.voiceEnabled && this.currentMeasure === 0 && this.currentSection > 0 && this.currentSection < this.sections.length) {
                 const section = this.sections[this.currentSection];
-                this.announceSection(`${section.name} for ${section.measures} measures`);
+                this.announceSection(`${section.name}, ${section.measures} measures`);
             }
         } else {
             if (this.metronomeEnabled) {
