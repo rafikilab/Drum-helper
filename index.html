@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrumHelper - Drummer Assistant</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1f2937">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DrumHelper">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkRydW1IZWxwZXIgLSBEcnVtbWVyIEFzc2lzdGFudCIsCiAgInNob3J0X25hbWUiOiAiRHJ1bUhlbHBlciIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFmMjkzNyIsCiAgInRoZW1lX2NvbG9yIjogIiMxZjI5MzciLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBek1qQWdNekl3SWo0OFkybHlZMnhsSUdONFBTSXhOakFpSUdONVBTSXhOakFpSUhJOUlqTXdJaUJtYVd4c1BTSWpObVE0WkRVM0lpOCtQR0psWTNRZ2VEMGlOVEFpSUhrOUlqUXdJaUIzYVdSMGFEMGlNakp3SWlCb1pXbG5hSFE5SW1JeU1DSWdjbms5SWpFd0lpQm1hV3hzUFNJalptWm1JaTgrUEM5emRtYytJaXdnImlhaWVhS3EiCiAgICAgICJzaXplcyI6ICIzMjB4MzIwIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="beat-flash" id="beatFlash"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🥁 DrumHelper</h1>
+            <p>Drummer assistant - Measures and transitions</p>
+        </div>
+
+        <div class="status">
+            <div class="visual-beat" id="visualBeat"></div>
+            <div class="tempo" id="tempoDisplay">120 BPM</div>
+            <div class="current-section" id="currentSection">Ready to play</div>
+            <div class="measure-count" id="measureCount">Measure: 0 / 0</div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="playBtn">▶ Play</button>
+            <button class="btn btn-secondary" id="stopBtn">⏹ Stop</button>
+        </div>
+
+        <div class="audio-settings">
+            <h3>🔊 Audio Settings</h3>
+            
+            <div class="audio-controls">
+                <div class="toggle-btn" id="metronomeToggle">
+                    <span>🎵 Metronome</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+                <div class="toggle-btn" id="voiceToggle">
+                    <span>🔊 Voice announcements</span>
+                    <div class="toggle-switch active"></div>
+                </div>
+            </div>
+
+            <div class="voice-selector">
+                <label for="voiceSelect">🎙️ Voice:</label>
+                <select id="voiceSelect">
+                    <option value="">Default voice</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="song-manager">
+            <h3>🎵 My Saved Songs</h3>
+            <div id="storageInfo"></div>
+            
+            <div class="saved-songs" id="savedSongs">
+                <!-- Saved songs will appear here -->
+            </div>
+            
+            <div class="manager-actions">
+                <button class="btn-save" onclick="saveSong()">💾 Save</button>
+                <button class="btn-export" onclick="exportSongs()">📤 Export All</button>
+                <button class="btn-import">
+                    📥 Import
+                    <input type="file" class="file-input" accept=".json" onchange="importSongs(this)">
+                </button>
+            </div>
+        </div>
+
+        <div class="song-form">
+            <h3>Song Configuration</h3>
+            
+            <div class="form-group">
+                <label for="songTitle">Song title</label>
+                <input type="text" id="songTitle" placeholder="My new song" value="Demo Song">
+            </div>
+            
+            <div class="form-group">
+                <label for="tempo">Tempo (BPM)</label>
+                <input type="number" id="tempo" min="60" max="200" value="120">
+            </div>
+            
+            <div class="form-group">
+                <label>Song sections</label>
+                <div class="sections" id="sections">
+                    <div class="section-item">
+                        <input type="text" placeholder="Name (e.g. Intro)" value="Intro">
+                        <input type="number" placeholder="Measures" min="1" max="32" value="4">
+                        <button onclick="removeSection(this)">✕</button>
+                    </div>
+                    <div class="section-item">
+                        <input type="text" placeholder="Name (e.g. Verse)" value="Verse">
+                        <input type="number" placeholder="Measures" min="1" max="32" value="8">
+                        <button onclick="removeSection(this)">✕</button>
+                    </div>
+                    <div class="section-item">
+                        <input type="text" placeholder="Name (e.g. Chorus)" value="Chorus">
+                        <input type="number" placeholder="Measures" min="1" max="32" value="4">
+                        <button onclick="removeSection(this)">✕</button>
+                    </div>
+                </div>
+                <button class="add-section" onclick="addSection()">+ Add section</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
