@@ -37,9 +37,9 @@ When user types hash commands, respond with corresponding section:
 
 ## Tech Stack Adaptability
 Auto-detects and adapts to:
-- Frontend frameworks (React, Vue, Angular)
-- Backend languages (Python, Node.js, Java, C#)
-- Databases (SQL, NoSQL)
+- Frontend frameworks
+- Backend languages
+- Databases
 - Cloud platforms
 - Development tools
 
