@@ -325,15 +325,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         
         // Initialize main application
-        drumHelper = new DrumHelper();
+        window.drumHelper = new DrumHelper();
         
         
         console.log('DrumHelper initialized successfully');
         
         // Clean up on page unload
         window.addEventListener('beforeunload', () => {
-            if (drumHelper) {
-                drumHelper.cleanup();
+            if (window.drumHelper) {
+                window.drumHelper.cleanup();
             }
         });
         
