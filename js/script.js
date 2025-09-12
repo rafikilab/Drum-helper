@@ -7,10 +7,8 @@ class DrumHelper {
         this.uiManager = new UIManager();
         this.configManager = new ConfigManager();
         
-        // Initialize audio manager (use advanced if available)
-        this.audioManager = window.AdvancedAudioManager ? 
-            new AdvancedAudioManager() : 
-            new AudioManager();
+        // Initialize audio manager (using basic AudioManager for better sound quality)
+        this.audioManager = new AudioManager();
             
         this.songManager = new SongManager(this.audioManager, this.uiManager);
         
@@ -33,11 +31,7 @@ class DrumHelper {
             await this.configManager.applyConfig();
             
             // Log which audio manager is being used
-            if (this.audioManager instanceof AdvancedAudioManager) {
-                console.log('Using AdvancedAudioManager with enhanced features');
-            } else {
-                console.log('Using basic AudioManager');
-            }
+            console.log('Using basic AudioManager for clean metronome sounds');
             
             console.log('Application initialized successfully');
             

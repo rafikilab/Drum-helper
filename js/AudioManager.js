@@ -399,11 +399,13 @@ class AudioManager {
         if (!this.metronomeEnabled) return;
         
         const settings = this.subdivisionSettings[this.subdivision];
-        const isAccented = settings.accent.includes(subdivisionIndex) || isDownbeat;
+        const isAccented = settings.accent.includes(subdivisionIndex);
         
         if (isDownbeat) {
             this.playDownbeat();
-        } else if (isAccented || subdivisionIndex === 0) {
+        } else if (this.subdivision === 'quarter' || isAccented) {
+            // For quarter notes, always play the main beat sound
+            // For other subdivisions, play main beat sound only on accented beats
             this.playBeat();
         } else {
             this.playSubdivisionBeat();

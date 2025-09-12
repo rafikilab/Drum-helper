@@ -614,20 +614,36 @@ class AdvancedAudioManager extends AudioManager {
      * Override parent beat methods to use sound bank
      */
     playBeat() {
-        const soundName = this.configManager?.get('audio.beatSound', 'click');
-        const volume = this.configManager?.get('audio.volume', 0.7);
+        if (!this.metronomeEnabled) return;
         
-        if (this.metronomeEnabled) {
+        // Get sound name with proper fallback
+        const soundName = this.configManager?.get?.('audio.beatSound') || 'click';
+        const volume = this.configManager?.get?.('audio.volume') || 0.7;
+        
+        // If sound bank is available and has the sound, use it
+        if (this.soundBank.has(soundName)) {
             this.playSoundFromBank(soundName, volume * 0.7);
+        } else {
+            // Fallback to parent's oscillator-based method
+            console.log('Using fallback oscillator method for beat');
+            super.playBeat();
         }
     }
 
     playDownbeat() {
-        const soundName = this.configManager?.get('audio.downbeatSound', 'wood-block');
-        const volume = this.configManager?.get('audio.volume', 0.7);
+        if (!this.metronomeEnabled) return;
         
-        if (this.metronomeEnabled) {
+        // Get sound name with proper fallback
+        const soundName = this.configManager?.get?.('audio.downbeatSound') || 'wood-block';
+        const volume = this.configManager?.get?.('audio.volume') || 0.7;
+        
+        // If sound bank is available and has the sound, use it
+        if (this.soundBank.has(soundName)) {
             this.playSoundFromBank(soundName, volume);
+        } else {
+            // Fallback to parent's oscillator-based method
+            console.log('Using fallback oscillator method for downbeat');
+            super.playDownbeat();
         }
     }
 
@@ -683,8 +699,7 @@ class AdvancedAudioManager extends AudioManager {
 
         try {
             const arrayBuffer = await file.arrayBuffer();
-            const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
-            return audioBuffer;
+            return await this.audioContext.decodeAudioData(arrayBuffer);
         } catch (error) {
             console.error('Failed to load sound from file:', error);
             return null;
