@@ -30,7 +30,7 @@
 ## 🚀 Quick Start
 
 ### Option 1: Web Browser (Instant)
-1. **Open**: [https://drumhelper.app](https://drumhelper.app) in any modern browser
+1. **Open**: [https://rafikilab.github.io/Drum-helper/](https://rafikilab.github.io/Drum-helper/) in any modern browser
 2. **Create**: Click "📝 New Song" to build your first song structure
 3. **Practice**: Hit "▶ Play" and let DrumHelper guide your practice
 
