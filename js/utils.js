@@ -90,7 +90,6 @@ class Utils {
             webAudio: !!(window.AudioContext || window.webkitAudioContext),
             speechSynthesis: 'speechSynthesis' in window,
             localStorage: typeof Storage !== 'undefined' && window.localStorage,
-            serviceWorker: 'serviceWorker' in navigator,
             webApp: window.matchMedia('(display-mode: standalone)').matches
         };
     }
@@ -168,14 +167,6 @@ class Utils {
         return this.createNotification(message, 'success', duration);
     }
 
-    /**
-     * Prevent sleep on mobile devices
-     * @param {Event} e - Touch event
-     */
-    static preventSleep(e) {
-        // Prevent sleep on mobile by handling touch events
-        e.preventDefault();
-    }
 }
 
 // Export for use in other modules

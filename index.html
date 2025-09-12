@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>DrumHelper - Professional Drummer Assistant | Metronome PWA</title>
-    <meta name="title" content="DrumHelper - Professional Drummer Assistant | Metronome PWA">
-    <meta name="description" content="Professional metronome PWA with intelligent voice announcements, song section management, and offline functionality. Perfect for drummers learning complex arrangements and transitions.">
-    <meta name="keywords" content="metronome, drummer, music, practice, PWA, offline, voice announcements, song sections, beat, tempo, rhythm">
+    <title>DrumHelper - Professional Drummer Assistant</title>
+    <meta name="title" content="DrumHelper - Professional Drummer Assistant">
+    <meta name="description" content="Professional metronome web application with intelligent voice announcements and song section management. Perfect for drummers learning complex arrangements and transitions.">
+    <meta name="keywords" content="metronome, drummer, music, practice, voice announcements, song sections, beat, tempo, rhythm">
     <meta name="author" content="DrumHelper Team">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://drumhelper.app/">
     <meta property="og:title" content="DrumHelper - Professional Drummer Assistant">
-    <meta property="og:description" content="Professional metronome PWA with intelligent voice announcements and song section management. Perfect for drummers practicing complex arrangements.">
+    <meta property="og:description" content="Professional metronome web application with intelligent voice announcements and song section management. Perfect for drummers practicing complex arrangements.">
     <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCNiZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRydW1IZWxwZXI8L3RleHQ+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMTgwIiByPSI0MCIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4zIiBzdHJva2U9IiMxMGI5ODEiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjMwMCIgeT0iMjUwIiBmaWxsPSIjZDFkNWRiIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9mZXNzaW9uYWwgTWV0cm9ub21lIFBXQTwvdGV4dD48L3N2Zz4=">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="300">
@@ -29,26 +29,11 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://drumhelper.app/">
     <meta property="twitter:title" content="DrumHelper - Professional Drummer Assistant">
-    <meta property="twitter:description" content="Professional metronome PWA with intelligent voice announcements and song section management.">
+    <meta property="twitter:description" content="Professional metronome web application with intelligent voice announcements and song section management.">
     <meta property="twitter:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCNiZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRydW1IZWxwZXI8L3RleHQ+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMTgwIiByPSI0MCIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4zIiBzdHJva2U9IiMxMGI5ODEiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjMwMCIgeT0iMjUwIiBmaWxsPSIjZDFkNWRiIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9mZXNzaW9uYWwgTWV0cm9ub21lIFBXQTwvdGV4dD48L3N2Zz4=">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#10b981">
-    <meta name="msapplication-TileColor" content="#10b981">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="DrumHelper">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    
-    <!-- Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM2IiBmaWxsPSJ1cmwoI2JnKSIvPjx0ZXh0IHg9IjkwIiB5PSI3MCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfpaE8L3RleHQ+PGNpcmNsZSBjeD0iOTAiIGN5PSIxMTAiIHI9IjE1IiBmaWxsPSIjMTBiOTgxIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iMTM1IiByPSI0IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiMxMGI5ODEiLz48dGV4dCB4PSIxNiIgeT0iMTEiIGZpbGw9IiNmZmZmZmYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn6WhPC90ZXh0PjxjaXJjbGUgY3g9IjE2IiBjeT0iMjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -115,7 +100,7 @@
             <div class="speech-rate-selector">
                 <label for="speechRateSlider">🚀 Speech Speed:</label>
                 <div class="slider-container">
-                    <input type="range" id="speechRateSlider" min="1" max="3" step="0.1" value="1.2">
+                    <input type="range" id="speechRateSlider" min="1" max="2" step="0.1" value="1.2">
                     <span class="rate-display" id="speechRateDisplay">1.2x</span>
                 </div>
             </div>
@@ -189,7 +174,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DrumHelper",
-        "description": "Professional metronome PWA with intelligent voice announcements and song section management for drummers",
+        "description": "Professional metronome web application with intelligent voice announcements and song section management for drummers",
         "url": "https://drumhelper.app",
         "applicationCategory": "MusicApplication",
         "operatingSystem": "Web Browser",
@@ -239,7 +224,6 @@
     <!-- JavaScript Modules -->
     <script src="js/utils.js" defer></script>
     <script src="js/ConfigManager.js" defer></script>
-    <script src="js/PWAManager.js" defer></script>
     <script src="js/AudioManager.js" defer></script>
     <script src="js/AdvancedAudioManager.js" defer></script>
     <script src="js/StorageManager.js" defer></script>

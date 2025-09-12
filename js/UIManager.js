@@ -86,9 +86,14 @@ class UIManager {
             });
         });
 
-        // Prevent sleep on touch devices
-        document.addEventListener('touchstart', Utils.preventSleep, { passive: false });
-        document.addEventListener('touchmove', Utils.preventSleep, { passive: false });
+        // Keep screen awake by requesting wake lock if available
+        if ('wakeLock' in navigator) {
+            try {
+                navigator.wakeLock.request('screen');
+            } catch (err) {
+                console.log('Wake Lock not available');
+            }
+        }
     }
 
     /**

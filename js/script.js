@@ -1,51 +1,48 @@
-// DrumHelper - Drummer Assistant PWA JavaScript (Modular Version)
+// DrumHelper - Drummer Assistant Web Application
 
 class DrumHelper {
     constructor() {
         // Initialize core managers
-        this.audioManager = new AudioManager();
         this.storageManager = new StorageManager();
         this.uiManager = new UIManager();
-        this.songManager = new SongManager(this.audioManager, this.uiManager);
+        this.configManager = new ConfigManager();
         
-        // Initialize PWA support
-        this.pwaManager = null;
-        this.configManager = null;
+        // Initialize audio manager (use advanced if available)
+        this.audioManager = window.AdvancedAudioManager ? 
+            new AdvancedAudioManager() : 
+            new AudioManager();
+            
+        this.songManager = new SongManager(this.audioManager, this.uiManager);
         
         // State
         this.currentSongId = null;
         
         // Initialize application
-        this.initializeOfflineSupport();
+        this.initialize();
         this.bindEvents();
         this.loadSongData();
         this.displaySavedSongs();
     }
 
     /**
-     * Initialize PWA and offline functionality
+     * Initialize application
      */
-    async initializeOfflineSupport() {
+    async initialize() {
         try {
-            // Initialize PWA manager for offline operation
-            this.pwaManager = new PWAManager();
-            await this.pwaManager.initialize();
-            
             // Initialize configuration management
-            this.configManager = new ConfigManager();
             await this.configManager.applyConfig();
             
-            // Initialize advanced audio features for offline use
-            if (window.AdvancedAudioManager) {
-                const advancedAudio = new AdvancedAudioManager();
-                await advancedAudio.initialize();
-                this.audioManager.setAdvancedFeatures(advancedAudio);
+            // Log which audio manager is being used
+            if (this.audioManager instanceof AdvancedAudioManager) {
+                console.log('Using AdvancedAudioManager with enhanced features');
+            } else {
+                console.log('Using basic AudioManager');
             }
             
-            console.log('PWA offline support initialized');
+            console.log('Application initialized successfully');
             
         } catch (error) {
-            console.warn('Failed to initialize PWA support:', error);
+            console.warn('Failed to initialize application:', error);
             // Continue with basic functionality
         }
     }
@@ -122,7 +119,7 @@ class DrumHelper {
             sections: formData.sections
         };
 
-        // Save using regular storage (always works offline)
+        // Save using regular storage
         const success = this.storageManager.saveSong(songData);
         if (success) {
             this.currentSongId = songData.id;
@@ -243,103 +240,7 @@ class DrumHelper {
 // Global variable for backward compatibility
 let drumHelper;
 
-// PWA Installation Handler
-class PWAInstaller {
-    constructor() {
-        this.deferredPrompt = null;
-        this.bindInstallPrompt();
-    }
 
-    bindInstallPrompt() {
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            this.deferredPrompt = e;
-            this.showInstallButton();
-        });
-    }
-
-    showInstallButton() {
-        const installBtn = document.createElement('button');
-        installBtn.textContent = '📱 Install App';
-        installBtn.className = 'btn btn-primary';
-        installBtn.style.margin = '10px auto';
-        installBtn.style.display = 'block';
-        installBtn.setAttribute('aria-label', 'Install DrumHelper as an app');
-        
-        installBtn.addEventListener('click', async () => {
-            if (this.deferredPrompt) {
-                this.deferredPrompt.prompt();
-                const choiceResult = await this.deferredPrompt.userChoice;
-                
-                if (choiceResult.outcome === 'accepted') {
-                    installBtn.remove();
-                    Utils.createSuccessNotification('App installed successfully!');
-                }
-                
-                this.deferredPrompt = null;
-            }
-        });
-        
-        const container = document.querySelector('.container');
-        if (container) {
-            container.appendChild(installBtn);
-        }
-    }
-}
-
-// Service Worker Registration and Management
-class ServiceWorkerManager {
-    constructor() {
-        this.registerServiceWorker();
-    }
-
-    registerServiceWorker() {
-        if (!Utils.checkBrowserSupport().serviceWorker) {
-            console.warn('Service Worker not supported');
-            return;
-        }
-
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then((registration) => {
-                    console.log('SW registered successfully:', registration.scope);
-                    this.handleServiceWorkerUpdates(registration);
-                })
-                .catch((error) => {
-                    console.warn('SW registration failed:', error);
-                });
-
-            // Handle service worker controller changes
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-                console.log('Service worker controller changed, reloading...');
-                window.location.reload();
-            });
-        });
-    }
-
-    handleServiceWorkerUpdates(registration) {
-        registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            
-            newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    console.log('New content available');
-                    
-                    // Show update notification
-                    Utils.createSuccessNotification(
-                        'App updated! Refresh to get the latest version.',
-                        8000
-                    );
-                    
-                    // Auto-refresh after notification
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 3000);
-                }
-            });
-        });
-    }
-}
 
 // Initialize Application
 window.addEventListener('DOMContentLoaded', () => {
@@ -358,11 +259,6 @@ window.addEventListener('DOMContentLoaded', () => {
         // Initialize main application
         drumHelper = new DrumHelper();
         
-        // Initialize PWA installer
-        new PWAInstaller();
-        
-        // Initialize Service Worker Manager
-        new ServiceWorkerManager();
         
         console.log('DrumHelper initialized successfully');
         

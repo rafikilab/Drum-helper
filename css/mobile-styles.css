@@ -24,7 +24,6 @@
 
     .status {
         padding: 15px;
-        margin: 10px 0;
         border-radius: 12px;
         background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
     }
@@ -74,10 +73,8 @@
     }
 
     .audio-settings, .saved-songs {
-        margin: 15px 0;
         padding: 15px;
         border-radius: 12px;
-        /* Background handled by layout.css - use consistent glass morphism */
     }
 
     .form-group {
@@ -245,46 +242,6 @@
     }
 }
 
-/* PWA-specific styles when installed - Applied dynamically via PWAManager.js */
-.pwa-installed {
-    /* Remove any browser UI elements */
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.pwa-installed .container {
-    /* Adjust for safe areas on notched devices */
-    padding: env(safe-area-inset-top) max(10px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(10px, env(safe-area-inset-left));
-}
-
-/* Install prompt styling - Created dynamically via PWAManager.js */
-.install-prompt {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.install-prompt:hover {
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
-}
-
-.install-prompt:active {
-    transform: translateX(-50%) scale(0.95);
-}
 
 /* Touch-friendly interactions */
 @media (hover: none) and (pointer: coarse) {
@@ -394,27 +351,3 @@
     }
 }
 
-/* Storage warning for mobile - Created dynamically via PWAManager.js */
-.storage-warning {
-    position: fixed;
-    bottom: 80px;
-    left: 10px;
-    right: 10px;
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    z-index: 1500;
-}
-
-.storage-warning button {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    margin-left: 10px;
-    cursor: pointer;
-}

@@ -521,40 +521,6 @@
     margin: var(--spacing-xs) 0;
 }
 
-/* PWA Components - Created dynamically via JavaScript */
-.pwa-installed {
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.install-prompt {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    color: white;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    border: none;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    box-shadow: var(--shadow-lg);
-    cursor: pointer;
-    transition: var(--transition-normal);
-    z-index: var(--z-toast);
-}
-
-.install-prompt:hover {
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: var(--shadow-xl);
-}
-
-.install-prompt:active {
-    transform: translateX(-50%) scale(0.95);
-}
-
 .notification {
     position: fixed;
     top: 20px;
