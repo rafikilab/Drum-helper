@@ -1,0 +1,265 @@
+/* DrumHelper - Layout Styles */
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.header h1 {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.header p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+    margin: 0;
+}
+
+/* Status Section */
+.status {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+/* Section Groups */
+.audio-settings,
+.song-manager,
+.song-form {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.audio-settings h3,
+.song-manager h3,
+.song-form h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+/* Audio Controls Layout */
+.audio-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Voice and Speech Controls */
+.voice-selector,
+.speech-rate-selector {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Song Manager Layout */
+.saved-songs {
+    margin-bottom: var(--spacing-lg);
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: var(--radius-md);
+}
+
+.manager-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Form Layout */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.section-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    background: var(--bg-glass);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-item input[type="text"] {
+    flex: 2;
+}
+
+.section-item input[type="number"] {
+    flex: 1;
+    min-width: 80px;
+}
+
+.section-item button {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    min-width: unset;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-danger);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+.section-item button:hover {
+    background: var(--color-danger-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.section-item button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.composer-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-xl);
+}
+
+/* Beat Flash Effect - Fullscreen overlay */
+.beat-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1), transparent);
+    pointer-events: none;
+    opacity: 0;
+    z-index: var(--z-overlay);
+    transition: opacity var(--transition-fast);
+}
+
+.beat-flash.active {
+    opacity: 1;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+    
+    .header h1 {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .header p {
+        font-size: var(--font-size-base);
+    }
+    
+    .status {
+        padding: var(--spacing-lg);
+    }
+    
+    .audio-settings,
+    .song-manager,
+    .song-form {
+        padding: var(--spacing-lg);
+    }
+    
+    .controls {
+        gap: var(--spacing-md);
+    }
+    
+    .section-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .section-item input[type="text"],
+    .section-item input[type="number"] {
+        flex: none;
+    }
+    
+    .composer-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .composer-actions button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    
+    .manager-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .manager-actions button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
