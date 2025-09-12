@@ -121,6 +121,8 @@ class DrumHelper {
         if (success) {
             this.currentSongId = songData.id;
             this.displaySavedSongs();
+            // Load and activate the newly saved song
+            this.loadSong(songData.id);
             // Reset form to defaults after saving and switch back to saved songs view
             this.uiManager.resetFormToDefaults();
             this.uiManager.showSavedSongsView();
