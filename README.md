@@ -1,15 +1,6 @@
 # 🥁 DrumHelper
 
-**Professional Metronome PWA with Intelligent Voice Announcements**
-
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/user/drumhelper)
-[![PWA](https://img.shields.io/badge/PWA-enabled-green.svg)](https://web.dev/progressive-web-apps/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Offline](https://img.shields.io/badge/offline-ready-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
-
-> **DrumHelper transforms your practice sessions with intelligent voice announcements, helping drummers seamlessly navigate complex song structures and transitions.**
-
----
+A professional metronome with intelligent voice announcements for drummers.
 
 ## 🌟 Why DrumHelper?
 
@@ -20,7 +11,7 @@
 ### ✨ Key Benefits
 
 - **🎯 Stay Focused**: Voice announcements let you concentrate on playing, not counting
-- **📱 Always Available**: Works offline as a PWA - practice anywhere, anytime  
+- **📱 Always Available**: Works offline as a PWA - practice anywhere, anytime
 - **🎵 Song-Aware**: Understands complete song structures, not just tempo
 - **⚡ Zero Setup**: No installation required - works instantly in any modern browser
 - **🔧 Fully Customizable**: Control every aspect of voice, timing, and visual feedback
@@ -36,7 +27,7 @@
 
 ### Option 2: Install as PWA (Recommended)
 1. **Visit** the web app in Chrome, Safari, or Edge
-2. **Install** when prompted (or click browser menu → "Install DrumHelper")  
+2. **Install** when prompted (or click browser menu → "Install DrumHelper")
 3. **Launch** from your device's app drawer like a native app
 4. **Enjoy** offline functionality and faster loading
 
@@ -45,13 +36,13 @@
 ## 🎵 Features
 
 ### 🎤 Intelligent Voice System
-- **Section Announcements**: "Intro", "Verse 1", "Chorus", "Bridge" 
+- **Section Announcements**: "Intro", "Verse 1", "Chorus", "Bridge"
 - **Measure Counting**: "Measure 1 of 8", "Measure 2 of 8"
 - **Transition Alerts**: "Last measure" warnings
 - **Multi-Language Support**: Works with system voice settings
 - **Speed Control**: Adjust speech rate from 1.0x to 3.0x
 
-### 🎼 Advanced Song Management  
+### 🎼 Advanced Song Management
 - **Complete Song Structures**: Build full arrangements with named sections
 - **Flexible Measures**: Each section can have 1-32 measures
 - **Multiple Subdivisions**: Quarter, eighth, triplet, sixteenth note patterns
@@ -61,7 +52,7 @@
 ### 📱 Progressive Web App
 - **Offline Ready**: Full functionality without internet
 - **Install Anywhere**: Works on mobile, tablet, desktop
-- **Background Sync**: Seamlessly handles network changes  
+- **Background Sync**: Seamlessly handles network changes
 - **Storage Management**: Smart cache with cleanup tools
 - **Performance Optimized**: Sub-50ms audio latency
 
@@ -169,7 +160,7 @@ Click "📥 Import" → Select .json file → Songs added to library
 5. Disable browser extensions that might block audio
 ```
 
-#### 🎤 Voice Announcements Not Working  
+#### 🎤 Voice Announcements Not Working
 **Symptoms**: Metronome works, but no voice
 **Solutions**:
 ```
@@ -213,24 +204,8 @@ Click "📥 Import" → Select .json file → Songs added to library
 5. Check if system audio sample rate matches (44.1kHz recommended)
 ```
 
-### Browser Compatibility
-
-| Browser | Audio | Voice | PWA | Offline | Notes |
-|---------|--------|--------|-----|---------|-------|
-| **Chrome** | ✅ Excellent | ✅ Excellent | ✅ Full | ✅ Full | Recommended |
-| **Safari** | ✅ Good | ✅ Good | ✅ Full | ✅ Full | iOS recommended |
-| **Edge** | ✅ Excellent | ✅ Good | ✅ Full | ✅ Full | Windows recommended |
-| **Firefox** | ✅ Good | ⚠️ Limited | ⚠️ Basic | ✅ Full | Voice issues on some systems |
-
-### Performance Tips
-
-- **Close unused tabs** - Browsers share audio resources
-- **Use HTTPS** - Required for full PWA functionality  
-- **Regular cleanup** - Use storage management tools in app
-- **Update browser** - Newer versions have better Web Audio support
-
 ---
 
-## 📄 License & Legal
+## License
 
-**MIT License** - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
