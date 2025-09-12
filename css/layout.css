@@ -99,7 +99,6 @@
 /* Song Manager Layout */
 .saved-songs {
     margin-bottom: var(--spacing-lg);
-    max-height: 400px;
     overflow-y: auto;
     border-radius: var(--radius-md);
 }

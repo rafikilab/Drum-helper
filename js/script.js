@@ -20,6 +20,9 @@ class DrumHelper {
         this.bindEvents();
         this.loadSongData();
         this.displaySavedSongs();
+        
+        // Initialize PWA functionality
+        this.initializePWA();
     }
 
     /**
@@ -219,6 +222,75 @@ class DrumHelper {
     importSongs(file) {
         this.storageManager.importSongs(file, () => {
             this.displaySavedSongs();
+        });
+    }
+
+    /**
+     * Initialize PWA functionality
+     */
+    async initializePWA() {
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            try {
+                const registration = await navigator.serviceWorker.register('./sw.js');
+                console.log('Service worker registered:', registration.scope);
+            } catch (error) {
+                console.error('Service worker registration failed:', error);
+            }
+        }
+
+        // Handle install prompt
+        let deferredPrompt;
+        const installSection = document.getElementById('pwaInstallSection');
+        const installBtn = document.getElementById('pwaInstallBtn');
+
+        // Check if app is already installed or in PWA mode
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                            window.navigator.standalone === true;
+        
+        if (isStandalone) {
+            // Hide install section if already running as PWA
+            console.log('Running as installed PWA');
+            return;
+        }
+
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome's default install prompt
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show our custom install section
+            if (installSection) {
+                installSection.classList.remove('hidden');
+            }
+        });
+
+        // Handle install button click
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    
+                    if (outcome === 'accepted') {
+                        console.log('PWA installed');
+                    }
+                    
+                    deferredPrompt = null;
+                    if (installSection) {
+                        installSection.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        // Listen for app installation
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            if (installSection) {
+                installSection.classList.add('hidden');
+            }
         });
     }
 
