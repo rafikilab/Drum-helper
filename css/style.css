@@ -1,0 +1,96 @@
+/* DrumHelper - Main Stylesheet */
+
+/* Import modular CSS files */
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./layout.css');
+@import url('./components.css');
+
+/* 
+ * This file serves as the main entry point for all styles.
+ * Individual modules are organized as follows:
+ * 
+ * - variables.css: Design tokens, CSS custom properties
+ * - base.css: Global styles, resets, typography
+ * - layout.css: Grid systems, structural layouts
+ * - components.css: Reusable UI components
+ * 
+ * For easier maintenance:
+ * - Keep related styles together in appropriate modules
+ * - Use CSS custom properties for consistent theming
+ * - Follow component-based organization
+ * - Maintain responsive design patterns
+ */
+
+/* Any additional custom styles specific to this application can be added below */
+
+/* Touch-friendly interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .toggle-switch,
+    .song-card {
+        min-height: 44px; /* iOS minimum touch target */
+        min-width: 44px;
+    }
+
+    .btn:active {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .toggle-switch:active {
+        transform: scale(0.95);
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .visual-beat {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn {
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-contrast: more) {
+    .container {
+        border: 2px solid currentColor;
+    }
+
+    .btn {
+        border: 2px solid currentColor;
+    }
+
+    .visual-beat.active {
+        border: 3px solid var(--color-primary);
+    }
+}
+
+/* Responsive adjustments for mobile components */
+@media (max-width: 768px) {
+    .storage-quota-indicator {
+        bottom: 70px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+    
+    .quota-warning {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .storage-quota-indicator,
+    .sync-progress-bar,
+    .visual-beat,
+    .beat-flash,
+    .btn {
+        animation: none !important;
+        transition: none !important;
+    }
+}

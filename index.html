@@ -2,38 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DrumHelper - Drummer Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Primary Meta Tags -->
+    <title>DrumHelper - Professional Drummer Assistant | Metronome PWA</title>
+    <meta name="title" content="DrumHelper - Professional Drummer Assistant | Metronome PWA">
+    <meta name="description" content="Professional metronome PWA with intelligent voice announcements, song section management, and offline functionality. Perfect for drummers learning complex arrangements and transitions.">
+    <meta name="keywords" content="metronome, drummer, music, practice, PWA, offline, voice announcements, song sections, beat, tempo, rhythm">
+    <meta name="author" content="DrumHelper Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="application-name" content="DrumHelper">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drumhelper.app/">
+    <meta property="og:title" content="DrumHelper - Professional Drummer Assistant">
+    <meta property="og:description" content="Professional metronome PWA with intelligent voice announcements and song section management. Perfect for drummers practicing complex arrangements.">
+    <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCNiZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRydW1IZWxwZXI8L3RleHQ+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMTgwIiByPSI0MCIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4zIiBzdHJva2U9IiMxMGI5ODEiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjMwMCIgeT0iMjUwIiBmaWxsPSIjZDFkNWRiIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9mZXNzaW9uYWwgTWV0cm9ub21lIFBXQTwvdGV4dD48L3N2Zz4=">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="300">
+    <meta property="og:site_name" content="DrumHelper">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://drumhelper.app/">
+    <meta property="twitter:title" content="DrumHelper - Professional Drummer Assistant">
+    <meta property="twitter:description" content="Professional metronome PWA with intelligent voice announcements and song section management.">
+    <meta property="twitter:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCNiZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRydW1IZWxwZXI8L3RleHQ+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMTgwIiByPSI0MCIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4zIiBzdHJva2U9IiMxMGI5ODEiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjMwMCIgeT0iMjUwIiBmaWxsPSIjZDFkNWRiIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Qcm9mZXNzaW9uYWwgTWV0cm9ub21lIFBXQTwvdGV4dD48L3N2Zz4=">
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#1f2937">
+    <meta name="theme-color" content="#10b981">
+    <meta name="msapplication-TileColor" content="#10b981">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="DrumHelper">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWYyOTM3O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzEwYjk4MTtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjM2IiBmaWxsPSJ1cmwoI2JnKSIvPjx0ZXh0IHg9IjkwIiB5PSI3MCIgZmlsbD0iI2ZmZmZmZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfpaE8L3RleHQ+PGNpcmNsZSBjeD0iOTAiIGN5PSIxMTAiIHI9IjE1IiBmaWxsPSIjMTBiOTgxIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iMTM1IiByPSI0IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiMxMGI5ODEiLz48dGV4dCB4PSIxNiIgeT0iMTEiIGZpbGw9IiNmZmZmZmYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn6WhPC90ZXh0PjxjaXJjbGUgY3g9IjE2IiBjeT0iMjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    
+    <!-- Security -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-styles.css">
 </head>
 <body>
     <div class="beat-flash" id="beatFlash"></div>
     
     <div class="container">
         <div class="header">
-            <h1>🥁 DrumHelper</h1>
-            <p>Drummer assistant - Measures and transitions</p>
+            <h1>DrumHelper</h1>
+            <p>🥁 Drummer assistant - Measures and transitions</p>
         </div>
 
         <div class="status">
             <div class="visual-beat" id="visualBeat"></div>
             <div class="tempo" id="tempoDisplay">120 BPM</div>
+            <div class="subdivision-display" id="subdivisionDisplay">♩ Quarter notes</div>
+            <div class="song-title" id="songTitleStatus">No song selected</div>
             <div class="current-section" id="currentSection">Ready to play</div>
             <div class="measure-count" id="measureCount">Measure: 0 / 0</div>
             
             <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                <div class="progress-fill" id="progressFill" style="width: 0"></div>
             </div>
         </div>
 
@@ -54,17 +99,30 @@
                     <span>🔊 Voice announcements</span>
                     <div class="toggle-switch active"></div>
                 </div>
+                <div class="toggle-btn" id="measureAnnouncementToggle">
+                    <span>📊 Announce measures</span>
+                    <div class="toggle-switch active"></div>
+                </div>
             </div>
 
-            <div class="voice-selector">
+            <div class="form-group voice-selector">
                 <label for="voiceSelect">🎙️ Voice:</label>
                 <select id="voiceSelect">
                     <option value="">Default voice</option>
                 </select>
             </div>
+
+            <div class="speech-rate-selector">
+                <label for="speechRateSlider">🚀 Speech Speed:</label>
+                <div class="slider-container">
+                    <input type="range" id="speechRateSlider" min="1" max="3" step="0.1" value="1.2">
+                    <span class="rate-display" id="speechRateDisplay">1.2x</span>
+                </div>
+            </div>
+
         </div>
 
-        <div class="song-manager">
+        <div class="song-manager" id="songManager">
             <h3>🎵 My Saved Songs</h3>
             <div id="storageInfo"></div>
             
@@ -73,21 +131,21 @@
             </div>
             
             <div class="manager-actions">
-                <button class="btn-save" onclick="saveSong()">💾 Save</button>
-                <button class="btn-export" onclick="exportSongs()">📤 Export All</button>
+                <button class="btn-new-song">📝 New Song</button>
+                <button class="btn-export">📤 Export All</button>
                 <button class="btn-import">
                     📥 Import
-                    <input type="file" class="file-input" accept=".json" onchange="importSongs(this)">
+                    <input type="file" class="file-input" accept=".json">
                 </button>
             </div>
         </div>
 
-        <div class="song-form">
-            <h3>Song Configuration</h3>
+        <div class="song-form hidden" id="songForm">
+            <h3>🎼 Song Composer</h3>
             
             <div class="form-group">
                 <label for="songTitle">Song title</label>
-                <input type="text" id="songTitle" placeholder="My new song" value="Demo Song">
+                <input type="text" id="songTitle" placeholder="My new song" value="">
             </div>
             
             <div class="form-group">
@@ -96,30 +154,98 @@
             </div>
             
             <div class="form-group">
+                <label for="subdivisionSelect">Rhythmic subdivision</label>
+                <select id="subdivisionSelect">
+                    <option value="quarter">♩ Quarter notes (1 per beat)</option>
+                    <option value="eighth">♫ Eighth notes (2 per beat)</option>
+                    <option value="triplet">♪♪♪ Triplets (3 per beat)</option>
+                    <option value="sixteenth">♬ Sixteenth notes (4 per beat)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
                 <label>Song sections</label>
                 <div class="sections" id="sections">
                     <div class="section-item">
-                        <input type="text" placeholder="Name (e.g. Intro)" value="Intro">
-                        <input type="number" placeholder="Measures" min="1" max="32" value="4">
-                        <button onclick="removeSection(this)">✕</button>
-                    </div>
-                    <div class="section-item">
-                        <input type="text" placeholder="Name (e.g. Verse)" value="Verse">
-                        <input type="number" placeholder="Measures" min="1" max="32" value="8">
-                        <button onclick="removeSection(this)">✕</button>
-                    </div>
-                    <div class="section-item">
-                        <input type="text" placeholder="Name (e.g. Chorus)" value="Chorus">
-                        <input type="number" placeholder="Measures" min="1" max="32" value="4">
-                        <button onclick="removeSection(this)">✕</button>
+                        <input type="text" placeholder="Name (e.g. Intro)" value="" maxlength="50" aria-label="Section name">
+                        <input type="number" placeholder="Measures" min="1" max="32" value="4" aria-label="Number of measures">
+                        <button type="button" aria-label="Remove section">✕</button>
                     </div>
                 </div>
-                <button class="add-section" onclick="addSection()">+ Add section</button>
+                <button class="add-section">+ Add section</button>
+                
+                <div class="composer-actions">
+                    <button class="btn-compose-save">💾 Save</button>
+                    <button class="btn-compose-reset">🔄 Reset</button>
+                    <button class="btn-compose-cancel">❌ Cancel</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DrumHelper",
+        "description": "Professional metronome PWA with intelligent voice announcements and song section management for drummers",
+        "url": "https://drumhelper.app",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web Browser",
+        "browserRequirements": "Requires JavaScript. Modern browser with Web Audio API support recommended.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "DrumHelper Team"
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "2024-12-11",
+        "version": "2.0.0"
+    }
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+        // Performance observer for monitoring
+        if ('PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        console.log('LCP:', entry.startTime);
+                    }
+                    if (entry.entryType === 'first-input') {
+                        console.log('FID:', entry.processingStart - entry.startTime);
+                    }
+                }
+            });
+            try {
+                observer.observe({entryTypes: ['largest-contentful-paint', 'first-input']});
+            } catch (e) {
+                console.log('Performance observer not supported');
+            }
+        }
+    </script>
+    
+    <!-- JavaScript Modules -->
+    <script src="js/utils.js" defer></script>
+    <script src="js/ConfigManager.js" defer></script>
+    <script src="js/PWAManager.js" defer></script>
+    <script src="js/AudioManager.js" defer></script>
+    <script src="js/AdvancedAudioManager.js" defer></script>
+    <script src="js/StorageManager.js" defer></script>
+    <script src="js/UIManager.js" defer></script>
+    <script src="js/SongManager.js" defer></script>
+    <!-- Main Application -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>

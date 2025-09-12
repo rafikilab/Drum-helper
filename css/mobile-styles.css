@@ -1,0 +1,420 @@
+/* DrumHelper Mobile PWA Styles */
+
+/* Mobile-first responsive design for PWA */
+
+/* Base mobile styles */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: var(--font-size-5xl) !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .status {
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    }
+
+    .tempo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 10px 0;
+    }
+
+    .current-section {
+        font-size: 1.2rem;
+        margin: 8px 0;
+    }
+
+    .measure-count {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .visual-beat {
+        width: 80px;
+        height: 80px;
+        margin: 15px auto;
+    }
+
+    .progress-bar {
+        height: 8px;
+        margin-top: 15px;
+        border-radius: 4px;
+    }
+
+    .controls {
+        gap: var(--spacing-md);
+    }
+
+    .btn {
+        padding: 14px 20px;
+        font-size: 1rem;
+        min-width: 120px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+
+    .audio-settings, .saved-songs {
+        margin: 15px 0;
+        padding: 15px;
+        border-radius: 12px;
+        /* Background handled by layout.css - use consistent glass morphism */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        /* Inherit glass morphism styling from components.css */
+        background: var(--bg-glass);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+    }
+    
+    .form-group select {
+        /* Ensure custom dropdown arrow is preserved */
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d1d5db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+
+    .sections {
+        margin-top: 20px;
+    }
+
+    .section-item {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+
+    .btn-small {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        min-width: auto;
+    }
+
+
+}
+
+/* Portrait orientation optimizations */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .visual-beat {
+        width: 100px;
+        height: 100px;
+    }
+
+    .tempo {
+        font-size: 3rem;
+    }
+
+    .controls {
+        position: sticky;
+        bottom: 10px;
+        z-index: 100;
+    }
+}
+
+/* Landscape orientation optimizations */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .header {
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .header p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .status {
+        width: 50%;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .controls {
+        width: 45%;
+        align-self: flex-start;
+    }
+
+
+    .audio-settings,
+    .saved-songs {
+        width: 48%;
+        margin: 5px 1%;
+    }
+
+    .visual-beat {
+        width: 60px;
+        height: 60px;
+        margin: 10px auto;
+    }
+
+    .tempo {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        min-width: 100px;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    .tempo {
+        font-size: 2.2rem;
+    }
+
+    .visual-beat {
+        width: 70px;
+        height: 70px;
+    }
+
+    .btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+
+    .controls {
+        gap: var(--spacing-md);
+    }
+
+    .btn-small {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* PWA-specific styles when installed - Applied dynamically via PWAManager.js */
+.pwa-installed {
+    /* Remove any browser UI elements */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.pwa-installed .container {
+    /* Adjust for safe areas on notched devices */
+    padding: env(safe-area-inset-top) max(10px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(10px, env(safe-area-inset-left));
+}
+
+/* Install prompt styling - Created dynamically via PWAManager.js */
+.install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.install-prompt:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+}
+
+.install-prompt:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .section-controls button {
+        min-height: 44px; /* iOS minimum touch target */
+    }
+    
+    /* Toggle switches need specific dimensions - don't force 44px minimum */
+    .toggle-switch {
+        min-height: unset;
+        min-width: unset;
+    }
+
+    .btn:active {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .toggle-switch:active {
+        transform: scale(0.95);
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .visual-beat {
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Accessibility improvements for mobile */
+@media (prefers-reduced-motion: reduce) {
+    .visual-beat,
+    .beat-flash,
+    .btn {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (prefers-contrast: more) {
+    .container {
+        border: 2px solid currentColor;
+    }
+
+    .btn {
+        border: 2px solid currentColor;
+    }
+
+    .visual-beat.active {
+        border: 3px solid #10b981;
+    }
+}
+
+/* Dark mode specific mobile adjustments */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .status {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    /* audio-settings and saved-songs background handled by layout.css for consistency */
+}
+
+/* Specific adjustments for common mobile browsers */
+/* Safari iOS */
+@supports (-webkit-touch-callout: none) {
+    .container {
+        /* Account for Safari's bottom bar */
+        padding-bottom: max(env(safe-area-inset-bottom), 20px);
+    }
+}
+
+/* Chrome Android */
+@media screen and (max-width: 768px) {
+    /* Prevent zoom on input focus */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Notification styles for mobile - Created dynamically via utils.js and PWAManager.js */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+    border-radius: 12px;
+    z-index: 2000;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Storage warning for mobile - Created dynamically via PWAManager.js */
+.storage-warning {
+    position: fixed;
+    bottom: 80px;
+    left: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    z-index: 1500;
+}
+
+.storage-warning button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    cursor: pointer;
+}

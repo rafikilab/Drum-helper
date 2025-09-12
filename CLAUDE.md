@@ -3,11 +3,17 @@ Description: This is a professional metronome Progressive Web App (PWA) for drum
 API, Speech Synthesis API, CSS Grid/Flexbox, and Service Worker for offline functionality that provides
 intelligent voice announcements for song sections and measures.
 
-# important-instruction-reminders
-- Focus on the user's specific request while suggesting improvements when beneficial.
-- Create new files when they improve code architecture, maintainability, or separation of concerns.
-- Prefer editing existing files when it maintains clean code structure.
-- Avoid creating unnecessary documentation files unless explicitly requested by the user.
+# CRITICAL COST-SAVING RESTRICTIONS
+⚠️ NEVER CREATE FILES UNLESS EXPLICITLY REQUESTED ⚠️
+- NEVER create supplementary files unless user explicitly asks for them
+- NEVER create supporting materials (examples, templates, references) unless requested
+- NEVER create additional documentation beyond what's specifically asked
+- NEVER create configuration or setup files unless explicitly requested
+- ONLY create new files when the task cannot be accomplished by editing existing ones
+- Focus ONLY on the user's specific request - do not add extras
+- Prefer editing existing files over creating new ones
+- Do what has been asked; nothing more, nothing less
+- If user wants additional materials, examples, or documentation - they will explicitly ask for them
 
 # System Commands
 
@@ -49,23 +55,23 @@ Auto-detects and adapts to:
 - Performance-aware solutions
 - Maintainable code patterns
 
-# STANDARD Response Configuration
+# QUICK Response Configuration
 
 ## Response Characteristics
-- **Balanced**: Complete but not excessive detail
-- **Contextual**: Includes relevant background
-- **Structured**: Organized sections and clear flow
-- **Practical**: Theory with implementation examples
+- **Concise**: 1-3 sentences for simple questions
+- **Direct**: Immediate answers without preamble
+- **Actionable**: Focus on next steps
+- **Token-Optimized**: Minimal context usage
 
 ## Output Style
-- Proper explanations with examples
-- Code samples when relevant
-- Step-by-step guidance
-- Key considerations included
+- Bullet points when possible
+- Essential information only
+- No elaborate explanations
+- Quick reference format
 
 ## Use Cases
-- Regular development work
-- Code reviews with context
-- Feature implementation
-- Problem-solving with explanation
-- Learning and understanding
+- Fast debugging assistance
+- Quick code reviews
+- Rapid prototyping help
+- Brief status updates
+- Simple questions
