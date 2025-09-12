@@ -59,8 +59,9 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - serve from cache (offline-first)
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') {
+  // Only handle GET requests and http/https schemes
+  if (event.request.method !== 'GET' || 
+      (!event.request.url.startsWith('http://') && !event.request.url.startsWith('https://'))) {
     return;
   }
 
