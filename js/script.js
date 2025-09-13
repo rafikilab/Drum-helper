@@ -59,6 +59,7 @@ class DrumHelper {
                 console.log('onMeasureAnnouncementToggle callback called');
                 this.audioManager.toggleMeasureAnnouncement();
             },
+            onConsistentBeepToggle: () => this.audioManager.toggleConsistentBeep(),
             onVoiceChange: (e) => {
                 this.audioManager.setSelectedVoice(e.target.value);
             },

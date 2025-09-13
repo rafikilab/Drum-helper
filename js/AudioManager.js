@@ -12,6 +12,7 @@ class AudioManager {
         this.selectedVoice = null;
         this.availableVoices = [];
         this.speechRate = 1.2; // Default speech rate
+        this.consistentBeep = false; // Whether to use same beep for all beats
         this.oscillatorNodes = new Set(); // Track active oscillator nodes to prevent memory leaks
         
         // Subdivision rythmique (rhythmic subdivision)
@@ -204,10 +205,16 @@ class AudioManager {
     }
 
     /**
-     * Play downbeat sound (1200Hz)
+     * Play downbeat sound (1200Hz or same as beat if consistent beep is enabled)
      */
     playDownbeat() {
         if (!this.metronomeEnabled || !this.audioContext) return;
+        
+        // Use same sound as regular beat if consistent beep is enabled
+        if (this.consistentBeep) {
+            this.playBeat();
+            return;
+        }
         
         try {
             const oscillator = this.audioContext.createOscillator();
@@ -354,6 +361,27 @@ class AudioManager {
     }
 
     /**
+     * Toggle consistent beep on/off
+     */
+    toggleConsistentBeep() {
+        this.consistentBeep = !this.consistentBeep;
+        const toggle = document.getElementById('consistentBeepToggle');
+        const switchEl = toggle?.querySelector('.toggle-switch');
+        
+        if (toggle && switchEl) {
+            if (this.consistentBeep) {
+                toggle.classList.add('active');
+                switchEl.classList.add('active');
+            } else {
+                toggle.classList.remove('active');
+                switchEl.classList.remove('active');
+            }
+        }
+        
+        console.log('Consistent beep:', this.consistentBeep ? 'enabled' : 'disabled');
+    }
+
+    /**
      * Set rhythmic subdivision
      * @param {string} subdivision - Type of subdivision ('quarter', 'eighth', 'sixteenth', 'triplet')
      */
@@ -408,7 +436,12 @@ class AudioManager {
             // For other subdivisions, play main beat sound only on accented beats
             this.playBeat();
         } else {
-            this.playSubdivisionBeat();
+            // Use consistent beat sound for subdivisions if enabled
+            if (this.consistentBeep) {
+                this.playBeat();
+            } else {
+                this.playSubdivisionBeat();
+            }
         }
     }
 

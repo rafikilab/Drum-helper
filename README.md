@@ -108,6 +108,7 @@ A professional metronome with intelligent voice announcements for drummers.
 | **🎵 Metronome** | Traditional click sounds | Always - provides timing reference |
 | **🔊 Voice** | Section announcements | Learning new songs, complex arrangements |
 | **📊 Measures** | Counts "Measure 1", "Measure 2" | Sections with specific measure requirements |
+| **🔊 Same beep** | Consistent sound for all beats | When you prefer uniform beeps instead of different tones |
 | **🎙️ Voice Selection** | Choose system voice | Pick clearest voice for your language |
 | **🚀 Speech Speed** | 1.0x - 3.0x rate | Match your comfort level and tempo |
 

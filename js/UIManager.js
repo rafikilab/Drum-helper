@@ -40,6 +40,7 @@ class UIManager {
             metronomeToggle: document.getElementById('metronomeToggle'),
             voiceToggle: document.getElementById('voiceToggle'),
             measureAnnouncementToggle: document.getElementById('measureAnnouncementToggle'),
+            consistentBeepToggle: document.getElementById('consistentBeepToggle'),
             voiceSelect: document.getElementById('voiceSelect'),
             speechRateSlider: document.getElementById('speechRateSlider'),
             subdivisionSelect: document.getElementById('subdivisionSelect'),
@@ -173,6 +174,10 @@ class UIManager {
             console.log('Measure announcement toggle event bound successfully');
         } else {
             console.warn('measureAnnouncementToggle element not found');
+        }
+        
+        if (this.elements.consistentBeepToggle) {
+            this.elements.consistentBeepToggle.addEventListener('click', callbacks.onConsistentBeepToggle);
         }
         
         if (this.elements.voiceSelect) {
